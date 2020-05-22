@@ -1,3 +1,4 @@
+package com.biz.control;
 import java.util.Random;
 
 public class if_06 

@@ -1,4 +1,6 @@
-package com.biz.hello;
+package com.biz.control;
+
+import java.util.Random;
 
 public class Var_01 
 {
