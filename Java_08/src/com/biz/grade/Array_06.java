@@ -11,7 +11,7 @@ public class Array_06
 	public static void main(String[] args) 
 	{
 		Random rnd = new Random();
-		int   sum = 0;
+		int   sum = 0; 
 		int[] num  = new int[100];
 		int[] num2 = new int[100];
 		
