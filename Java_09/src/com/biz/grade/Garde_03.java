@@ -14,7 +14,7 @@ public class Garde_03
 		Random rnd = new Random();
 		int num = rnd.nextInt();
 		num*=55;
-		int sum = num;
+		int sum = num; 
 		System.out.println(sum);
 	}
 }
