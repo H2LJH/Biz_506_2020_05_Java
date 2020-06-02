@@ -10,7 +10,7 @@ package com.biz.classes.model;
 // VO : 데이터를 담아서 method들 간에 이동할때 사용하느 클래스
 public class Address_VO 
 {
-	private String str_name; // 이름
+	private String str_name;  // 이름
 	private String str_tel;  // 전화번호
 	private String str_addr;  // 주소
 	private int int_age; // 나이
