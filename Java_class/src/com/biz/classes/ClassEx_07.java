@@ -9,7 +9,7 @@ public class ClassEx_07
 		CalcService calc_service = new CalcService();
 		
 		int intkor = 90;
-		int inteng = 80;
+		int inteng = 80; 
 		
 		calc_service.add(intkor, inteng);
 		calc_service.add(1, 2);
@@ -18,7 +18,7 @@ public class ClassEx_07
 		System.out.println(sum);
 		
 		sum = calc_service.even(10, 1000);
-		System.out.println(sum);
+		System.out.println(sum); 
 		
 		sum = calc_service.even(2, 55);
 		System.out.println(sum);
