@@ -21,7 +21,7 @@ public class Var_02
 		System.out.println("2 X " + ++num2 + " = " + (num1 * num2));
 
 		num1 = 4;
-		num2 = 0;
+		num2 = 0; 
 		System.out.println("4 X " + ++num2 + " = " + (num1 * num2));
 		System.out.println("4 X " + ++num2 + " = " + (num1 * num2));
 		System.out.println("4 X " + ++num2 + " = " + (num1 * num2));
