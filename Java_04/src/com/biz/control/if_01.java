@@ -11,12 +11,8 @@ public class if_01
 				
 		if(bVar == true) 
 			System.out.println("bVar 는 true");
-		
-		bVar = (32 % 2) == 0;
-		
-		if(bVar == true) 
-			System.out.println("32는 짝수");
 
+		bVar = (32 % 2) == 0;	
 		if((32 % 2) == 0)
 			System.out.println("32는 짝수");
 	}

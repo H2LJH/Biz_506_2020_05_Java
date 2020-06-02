@@ -5,7 +5,7 @@ public class VarBoolean_02 {
 	{
 		boolean bVar1 = true;
 		boolean bVar2 = true;
-		// 3 > 3의 비교연산을 수행하여 결과를 bVar2에 저장하라
+		// 3 > 3의 비교연산을 수행하여 결과를 bVar2에 저장하라.
 			    bVar2 = 3 > 3;
 			    System.out.println(bVar2);
 			    

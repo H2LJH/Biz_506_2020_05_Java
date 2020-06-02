@@ -21,7 +21,7 @@ public class Garde_08
 		iArr_Kor[7] = rnd.nextInt(50)+50;
 		iArr_Kor[8] = rnd.nextInt(50)+50;
 		iArr_Kor[9] = rnd.nextInt(50)+50;
-		iArr_Kor[10] = rnd.nextInt(50)+50; // 익셉션 오류 남
+		iArr_Kor[10] = rnd.nextInt(50)+50; // 익셉션 오류
 		
 	}
 }

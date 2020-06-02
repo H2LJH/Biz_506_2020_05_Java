@@ -23,7 +23,7 @@ public class Car_make_04
 		/*
 		 *  Car class를 사용해서 생성된 소나타 객체를 만들게 되면
 		 *  Car class에 선언된 method를 소나타의 method 명령문 처럼 사용할수 있다.
-		 *  method의 호출,사용
+		 *  method의 호출,사용 
 		*/
 		
 		소나타.주차();

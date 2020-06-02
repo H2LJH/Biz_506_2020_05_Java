@@ -31,7 +31,7 @@ public class Array_01
 			arr_Kor[i]   = rnd.nextInt(50)+51;
 			arr_Eng[i]   = rnd.nextInt(50)+51;  
 			arr_Math[i]  = rnd.nextInt(50)+51;
-			arr_Music[i] = rnd.nextInt(50)+51;
+			arr_Music[i] = rnd.nextInt(51)+50;
 		}
 		
 		for(int i=0; i<iTotal_man; i++)

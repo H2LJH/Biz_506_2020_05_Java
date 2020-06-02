@@ -15,7 +15,6 @@ public class Address
 	 
 	// 객체를 통해서 필드변수에 접근 하기 위한 setter method
 	// 객체를 통해서 필드변수에 접근 하기 위한 getter method
-	
 	public void set_city(String city){
 		this.city = city;
 		}

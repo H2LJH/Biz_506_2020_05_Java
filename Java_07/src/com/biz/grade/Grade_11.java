@@ -15,7 +15,7 @@ public class Grade_11
 		for(int i=0; i<=9; i++)
 		{
 			if(iNum[i] % 2 == 0)
-				System.out.println(i + "번째 배열의 숫자는 짝수 : " + iNum[i]);
+				System.out.println(i + "번째 배열의 숫자는 : " + iNum[i]);
 		}
 		
 	}

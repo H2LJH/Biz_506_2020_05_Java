@@ -24,9 +24,7 @@ public class Grade_14
 		}
 		
 		for(int i=0; i<=5; ++i)
-		{
 			System.err.println(iNums[i]);
-		}
 		
 	}
 }

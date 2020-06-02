@@ -18,6 +18,6 @@ public class Garde_13
 			if((Arr_num[i] % 3 == 0) || (Arr_num[i] % 5 == 0))
 				iSum += Arr_num[i];
 		}
-		System.out.println("3 또는 5의 배수들 합 : " + iSum);
+		System.out.println("3 OR 5의 배수들 합 : " + iSum);
 	}
 }

@@ -8,7 +8,7 @@ public class HelloKorea_03
 {
 	public static void main(String[] args) 
 	{
-		//사칙연산==================
+		//사칙연산================
 		System.out.println(30+40);
 		System.out.println(30-40);
 		System.out.println(30*40);

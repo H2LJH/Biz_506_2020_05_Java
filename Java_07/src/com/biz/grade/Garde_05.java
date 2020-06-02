@@ -54,10 +54,9 @@ public class Garde_05
 		for(int i = 0; i<=a.length-1; i++)
 		{
 			a[i] += rnd.nextInt(50)+51;
-			System.out.println((i+1) + "번 국어 점수 : " + a[i]);
-						
+			System.out.println((i+1) + "번 국어 점수 : " + a[i]);			
 			sum += a[i];
 		}
-		int Avg = sum / 10;
+		//int Avg = sum / 10;
 	}
 }

@@ -16,7 +16,7 @@ public class Grade_04
 		
 		FKor  = rnd.nextInt(50)+51;
 		FEng  = rnd.nextInt(50)+51;
-		FMath = rnd.nextInt(50)+51;
+		FMath = rnd.nextInt(51)+50;
 		
 		FSum = FKor + FEng + FMath;
 		FAvg = FSum / 3; 

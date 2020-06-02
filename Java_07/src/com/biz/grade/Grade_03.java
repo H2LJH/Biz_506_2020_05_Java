@@ -14,7 +14,7 @@ public class Grade_03
 		
 		iKor  = rnd.nextInt(100)+1;
 		iEng  = rnd.nextInt(100)+1;
-		iMath = rnd.nextInt(100)+1;
+		iMath = rnd.nextInt(99)+2;
 		
 		int iSum = iKor + iEng + iMath;
 		int iAvg = iSum / 3;

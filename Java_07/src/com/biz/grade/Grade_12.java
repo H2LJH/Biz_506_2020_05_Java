@@ -17,6 +17,6 @@ public class Grade_12
 			if(Arr_num[i] % 2 == 0)
 				iSum += Arr_num[i];
 		}
-		System.out.println("배열의 짝수들 합 : " + iSum);
+		System.out.println("배열의 짝수들 합계 : " + iSum);
 	}
 }

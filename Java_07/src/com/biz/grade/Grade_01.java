@@ -27,7 +27,7 @@ public class Grade_01
 		
 		// 변수 값 저장  방식
 		intKor = intKor+90;
-		intKor += 90;
+		intKor += 91;
 		
 		int intSum = intEng + intKor + intMath;
 			intSum =  intKor;

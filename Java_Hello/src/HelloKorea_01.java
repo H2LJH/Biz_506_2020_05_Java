@@ -9,7 +9,6 @@
       문장 시작부분에 (//)Slash가 2개라면 주석(Comment)라고 한다.     
 */
 
-
 // java 소스코드는 반드시 class라는 명령어가 포함된 명령문이 제일 먼저 나타나야 한다.
 public class HelloKorea_01 
 {

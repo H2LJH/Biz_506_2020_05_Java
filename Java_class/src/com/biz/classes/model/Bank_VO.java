@@ -34,8 +34,8 @@ public class Bank_VO
 	public int getValace() {
 		return valace;
 	}
-	public void setValace(int valace) {
-		this.valace = valace;
+	public void setValace() {
+		this.valace = getInput() - getOuput();
 	}
 
 	

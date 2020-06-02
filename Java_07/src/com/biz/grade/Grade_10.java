@@ -41,12 +41,12 @@ public class Grade_10 {
 	System.out.println("국어 총점 : " + isum_Kor);
 	System.out.println("국어 평균 : " + iAvg);
 	
-	System.out.println("==============================");
+	System.out.println("===============================");
 	iAvg = isum_Eng / 10;
 	System.out.println("영어 총점 : " + isum_Eng);
 	System.out.println("영어 평균 : " + iAvg);
 	
-	System.out.println("==============================");
+	System.out.println("===============================");
 	iAvg = isum_Math / 10;
 	System.out.println("수학 총점 : " + isum_Math);
 	System.out.println("수학 평균 : " + iAvg);

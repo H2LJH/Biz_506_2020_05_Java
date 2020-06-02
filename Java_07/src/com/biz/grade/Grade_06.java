@@ -8,7 +8,7 @@ public class Grade_06
 	{
 	Random rnd = new Random();
 	
-	int[] iArray_Kor = new int[100];
+	int[] iArray_Kor = new int[101];
 	int iSum = 0;
 	int iAvg = 0;
 	
@@ -18,7 +18,7 @@ public class Grade_06
 		System.out.println((i+1) + "번 국어 점수 : " + iArray_Kor[i]);
 		iSum += iArray_Kor[i];
 	}
-	iAvg = iSum / 100;
+	iAvg = iSum / 101;
 	
 	System.out.println("총점 국어 점수 : " + iSum);
 	System.out.println("평균 국어 점수 : " + iAvg);

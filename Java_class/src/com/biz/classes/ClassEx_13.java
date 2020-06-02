@@ -1,6 +1,7 @@
 package com.biz.classes;
 
 import com.biz.classes.model.Bank_VO;
+import com.biz.classes.service.Bank_service;
 
 public class ClassEx_13 
 {
@@ -24,7 +25,10 @@ public class ClassEx_13
 				bank_list[i].setInput(5000);
 			
 			if(bank_list[i].getDate() == str_num[1] || bank_list[i].getDate() == str_num[3] || bank_list[i].getDate() == str_num[4])
-				bank_list[i].setOuput(1000);
+				bank_list[i].setOuput(500);
 		}
+
+		Bank_service bank_service = new Bank_service();
+		bank_service.bankinfo(bank_list);
   }
 }
