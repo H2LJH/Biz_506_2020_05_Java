@@ -11,7 +11,7 @@ public class VarBoolean_04
 		int    num1 = 0;
 		
 		num1 = rnd.nextInt(100);
-		System.out.println(num1);
+		System.out.println(num1); 
 		
 
 	}
