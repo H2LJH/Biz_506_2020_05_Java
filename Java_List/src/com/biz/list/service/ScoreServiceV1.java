@@ -23,7 +23,6 @@ public class ScoreServiceV1
 			System.out.print(sVO.getKor() + "\t");
 			System.out.print(sVO.getEng() + "\t");
 			System.out.print(sVO.getMath() + "\t");
-			//System.out.printf("%d\t ",scoreserviceV2.stSum());
 
 			int sum = sVO.getKor() + sVO.getEng() + sVO.getMath();
 			System.out.println(sum);
