@@ -6,38 +6,50 @@ import com.biz.list.model.ScoreVO;
 
 public class ScoreServiceV2 
 {
-	List<ScoreVO> scorelist;
-	
-	public int stSum(List<ScoreVO> scorelist)
+	List<ScoreVO> scoreList;
+
+	public void stSum(List<ScoreVO> scoreList)
 	{
-		int sum = 0;
-		for(int i=0; i<scorelist.size(); ++i)
-			sum = scorelist.get(i).getKor() + 
-				  scorelist.get(i).getEng() +
-				  scorelist.get(i).getMath();
-		return sum;
+		this.scoreList = scoreList;
+		int scoreSize = scoreList.size();
+		for(int i=0; i<scoreSize; ++i)
+		{
+			ScoreVO sVO = scoreList.get(i);
+			int sum = sVO.getKor() + sVO.getEng() + sVO.getMath();
+			sVO.setStSum(sum); 
+		}
+	
 	}
 	
-	public int stAvg()
+	public void stAvg()
 	{
-		int avg = 0;
-		for(int i=0; i<scorelist.size(); ++i)
-			avg = scorelist.get(i).getStSum() / 3;
-	
-		return avg;
+		int scoreSize = scoreList.size();
+		for(int i=0; i<scoreSize; ++i)
+		 {
+			ScoreVO sVO = scoreList.get(i);
+			sVO.setStAvg(sVO.getStSum() / 3);
+		 }
+
 	}
 	
 	public void scoreList()
 	{
-		System.out.println("--------------------------------------------------------");
-		System.out.println("이름\t 국어\t 영어\t 수학\t 총점\t 평균");
-		System.out.println("--------------------------------------------------------");
-		for(int i=0; i<scorelist.size(); ++i)
+		System.out.println("=============================================");
+		System.out.println("\t\t성적 리스트");
+		System.out.println("=============================================");
+		System.out.println("학번\t국어\t영어\t수학\t총점\t평균");
+		System.out.println("=============================================");
+		int scoreSize = scoreList.size();
+		for(int i=0; i<scoreSize; i++)
 		{
-			System.out.printf("%s\t %d\t %d\t %d\t %d\t %d\t %d\n", scorelist.get(i).getNum(),   scorelist.get(i).getKor(),
-																	scorelist.get(i).getEng(),   scorelist.get(i).getMath(), 
-																	scorelist.get(i).getStSum(), scorelist.get(i).getStAvg());
-			System.out.println("--------------------------------------------------------");
+			ScoreVO sVO = scoreList.get(i);
+			System.out.print(sVO.getNum() + "\t");
+			System.out.print(sVO.getKor() + "\t");
+			System.out.print(sVO.getEng() + "\t");
+			System.out.print(sVO.getMath() + "\t");
+			System.out.print(sVO.getStSum() + "\t");
+			System.out.print(sVO.getStAvg() + "\t\n");
+			System.out.println("=============================================");
 		}
 	}
 }
