@@ -35,7 +35,7 @@ public class ScoreServiceV2
 	public void scoreList()
 	{
 		int scoreSize = scoreList.size();
-		
+
 		System.out.println("=============================================");
 		System.out.println("\t\t성적 리스트");
 		System.out.println("=============================================");
@@ -49,7 +49,7 @@ public class ScoreServiceV2
 			System.out.print(sVO.getEng() + "\t");
 			System.out.print(sVO.getMath() + "\t");
 			System.out.print(sVO.getStSum() + "\t");
-			System.out.print(sVO.getStAvg() + "\t\n");
+			System.out.print(sVO.getStAvg() + "\n");
 			System.out.println("=============================================");
 		}
 	}
