@@ -6,7 +6,6 @@ import com.biz.list.model.ScoreVO;
 
 public class ScoreServiceV1 
 {
-	 ScoreServiceV2 scoreserviceV2;
 	
 	 // * ScoreEx_02에서 만든 scoreList를 매개변수로 받아서 성적리스트를 출력한다.
 	public void scoreList(List<ScoreVO> scores)
@@ -24,7 +23,6 @@ public class ScoreServiceV1
 			System.out.print(sVO.getKor() + "\t");
 			System.out.print(sVO.getEng() + "\t");
 			System.out.print(sVO.getMath() + "\t");
-			//System.out.printf("%d\t ",scoreserviceV2.stSum());
 
 			int sum = sVO.getKor() + sVO.getEng() + sVO.getMath();
 			System.out.println(sum);
