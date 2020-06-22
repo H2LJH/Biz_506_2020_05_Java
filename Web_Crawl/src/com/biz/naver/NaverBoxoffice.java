@@ -96,7 +96,7 @@ public class NaverBoxoffice
 				System.out.println("개봉일 : " + openDt);
 				System.out.println("감독 : " + director);
 				System.out.println("출연진 : " + actor);
-				System.out.println("무비코드 : " + naverCode);
+				System.out.println("영화코드 : " + naverCode);
 				System.out.print("\n");
 				
 			}
