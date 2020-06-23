@@ -24,7 +24,6 @@ public class DaumBoxoffice
 		{
 			url = movie.attr("href");
 			Document moviedoc = Jsoup.connect(url).get();
-			
 			// ======================== 타이틀 ========================
 			if(moviedoc.select("span.txt_name").size() == 0)
 				continue;
