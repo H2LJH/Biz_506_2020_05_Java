@@ -21,13 +21,15 @@ public class ScorService01
 	{
 		ScoreVO vo = new ScoreVO();
 		String strN = "";
-		int intN = 0;
+		int intN = 0; 
 		
-		System.out.print("학번 입력 :");
-		strN = sc.nextLine();
-		vo.setNumber(strN);
 		try 
 		{			
+			System.out.print("학번 입력 :");
+			strN = sc.nextLine();
+			intN = Integer.valueOf(strN);
+			vo.setNumber(intN);
+
 			System.out.print("국어 점수 입력 :");
 			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
@@ -46,13 +48,18 @@ public class ScorService01
 		} 
 		catch (Exception e)
 		{
-			System.out.println("입력값이 잘못 되었으므로 성적은 0점으로 표시합니다.");
+			intN = -1;
+			System.out.println("입력 값이 잘못된 항목은 -1로 표시합니다.");
+			vo.setNumber(intN);
+			vo.setKor(intN);
+			vo.setEng(intN);
+			vo.setMath(intN);
 		}
 		
-		int sum = vo.getKor() + vo.getEng() + vo.getMath();
-		vo.setSum(sum);
-		vo.setAvg(sum / 3);
-		scoreList.add(vo); 
+		intN = vo.getKor() + vo.getEng() + vo.getMath();
+		vo.setSum(intN);
+		vo.setAvg(intN / 3);
+		scoreList.add(vo);
 		return true;
 	}
 	
