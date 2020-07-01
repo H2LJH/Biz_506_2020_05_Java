@@ -52,7 +52,7 @@ public class ScorService01
 		int sum = vo.getKor() + vo.getEng() + vo.getMath();
 		vo.setSum(sum);
 		vo.setAvg(sum / 3);
-		scoreList.add(vo);
+		scoreList.add(vo); 
 		return true;
 	}
 	
