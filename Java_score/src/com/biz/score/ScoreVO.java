@@ -3,17 +3,17 @@ package com.biz.score;
 
 public class ScoreVO 
 {
-	private int number;
+	private String number;
 	private int kor;
 	private int eng;
 	private int math;
 	private int sum;
 	private int avg;
 	
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 	public int getKor() {

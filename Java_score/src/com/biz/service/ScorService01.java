@@ -13,56 +13,46 @@ public class ScorService01
 	public ScorService01()
 	{
 		scoreList = new ArrayList<ScoreVO>();
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 	}
 	
 	
 	public boolean inputScore()
 	{
 		ScoreVO vo = new ScoreVO();
+		String strN = "";
 		int intN = 0;
-		int sum = 0;
-		String strN;
 		
 		System.out.print("학번 입력 :");
 		strN = sc.nextLine();
-		
-		System.out.print("국어 점수 입력 :");
-		strN = sc.nextLine();
-		
-		System.out.print("영어 점수 입력 :");
-		strN = sc.nextLine();
-		
-		System.out.print("수학 점수 입력 :");
-		strN = sc.nextLine();
-		
+		vo.setNumber(strN);
 		try 
-		{				
+		{			
+			System.out.print("국어 점수 입력 :");
+			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setKor(intN);
-			sum += intN;
 			
-			intN = Integer.valueOf(strN);
-			vo.setKor(intN);
-			sum += intN;
-			
+			System.out.print("영어 점수 입력 :");
+			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setEng(intN);
-			sum += intN;
 			
+			System.out.print("수학 점수 입력 :");
+			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setMath(intN);
-			sum += intN;
 			
 		} 
 		catch (Exception e)
 		{
-			System.out.println("입력값이 잘못 되었으므로 0점으로 처리 합니다.");
+			System.out.println("입력값이 잘못 되었으므로 성적은 0점으로 표시합니다.");
 		}
 		
-		vo.setSum(intN);
+		int sum = vo.getKor() + vo.getEng() + vo.getMath();
+		vo.setSum(sum);
 		vo.setAvg(sum / 3);
-			
+		scoreList.add(vo);
 		return true;
 	}
 	
@@ -71,7 +61,7 @@ public class ScorService01
 	{
 		
 		System.out.println("=============");
-		System.out.println("주소록");
+		System.out.println("성적 정보");
 		System.out.println("=============");
 		System.out.println("학번\t 국어\t 수학\t 영어\t 총점\t 평균\t");
 		for(int i=0; i<scoreList.size(); ++i)
