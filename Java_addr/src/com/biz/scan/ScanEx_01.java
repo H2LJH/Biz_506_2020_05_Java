@@ -2,7 +2,7 @@ package com.biz.scan;
 
 import java.io.InputStream;
 import java.util.Scanner;
-
+ 
 /*
  *  화면에 메뉴를 보여주고
  *  키보드로 선택을 하면 해당하는 코드를 실행
