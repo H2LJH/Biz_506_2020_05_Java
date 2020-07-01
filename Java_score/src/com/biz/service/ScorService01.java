@@ -22,7 +22,7 @@ public class ScorService01
 		ScoreVO vo = new ScoreVO();
 		String strN = "";
 		int intN = 0; 
-		
+		 
 		try 
 		{			
 			System.out.print("학번 입력 :");
