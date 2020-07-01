@@ -14,7 +14,7 @@ public class ScanEx_07
 		System.out.println("1. 학생 정보 입력\n" + 
 						   "2. 성적정보입력\n"   + 
 				           "3. 성적출력\n" + 
-						   "-1. 종료");
+						   "-1. 종료"); 
 		System.out.println("=================================");
 		System.out.print("업무 선택 >> ");
 		
