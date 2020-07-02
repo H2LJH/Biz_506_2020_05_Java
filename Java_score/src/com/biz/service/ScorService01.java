@@ -22,6 +22,7 @@ public class ScorService01
 		ScoreVO vo = new ScoreVO();
 		String strN = "";
 		int intN = 0; 
+		float sum = 0;
 		 
 		try 
 		{			
@@ -29,36 +30,59 @@ public class ScorService01
 			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setNumber(intN);
+		}
+		catch(Exception e) 
+		{
+			System.out.println("잘못 입력");
+			vo.setNumber(intN);
+		}
 
+		
+		try 
+		{
 			System.out.print("국어 점수 입력 :");
 			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setKor(intN);
-			
+		}
+		catch(Exception e)
+		{
+			System.out.println("잘못 입력");
+			vo.setKor(intN);
+		}
+		
+		
+		try
+		{
 			System.out.print("영어 점수 입력 :");
 			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setEng(intN);
+		}
+		catch(Exception e)
+		{
+			System.out.println("잘못 입력");
+			vo.setEng(intN);
+		}
+		
+		
+		try
+		{
 			
 			System.out.print("수학 점수 입력 :");
 			strN = sc.nextLine();
 			intN = Integer.valueOf(strN);
 			vo.setMath(intN);
-			
-		} 
+		}
 		catch (Exception e)
 		{
-			intN = -1;
-			System.out.println("입력 값이 잘못된 항목은 -1로 표시합니다.");
-			vo.setNumber(intN);
-			vo.setKor(intN);
-			vo.setEng(intN);
+			System.out.println("잘못 입력");
 			vo.setMath(intN);
 		}
 		
-		intN = vo.getKor() + vo.getEng() + vo.getMath();
-		vo.setSum(intN);
-		vo.setAvg(intN / 3);
+		sum = (float)(vo.getKor()) + (float)(vo.getEng()) + (float)(vo.getMath());
+		vo.setSum(sum);
+		vo.setAvg(sum / 3);
 		scoreList.add(vo);
 		return true;
 	}

@@ -1,5 +1,6 @@
 package com.biz.score;
 
+import java.util.List;
 
 public class ScoreVO 
 {
@@ -7,8 +8,8 @@ public class ScoreVO
 	private int kor;
 	private int eng;
 	private int math;
-	private int sum;
-	private int avg;
+	private float sum;
+	private float avg;
 	
 	public int getNumber() {
 		return number;
@@ -19,31 +20,45 @@ public class ScoreVO
 	public int getKor() {
 		return kor;
 	}
-	public void setKor(int kor) {
+	public boolean setKor(int kor) 
+	{
+		if(kor < 0 || kor > 100)
+			return false;
+		
 		this.kor = kor;
+		return true;
 	}
 	public int getEng() {
 		return eng;
 	}
-	public void setEng(int eng) {
+	public boolean setEng(int eng) {
+		
+		if(eng < 0 || eng > 100)
+			return false;
+		
 		this.eng = eng;
+		return true;
 	}
 	public int getMath() {
 		return math;
 	}
-	public void setMath(int math) {
+	public boolean setMath(int math) {
+		if(math < 0 || math > 100)
+			return false;
+		
 		this.math = math;
+		return true;
 	}
-	public int getSum() {
+	public float getSum() {
 		return sum;
 	}
-	public void setSum(int sum) {
+	public void setSum(float sum) {
 		this.sum = sum;
 	}
-	public int getAvg() {
+	public float getAvg() {
 		return avg;
 	}
-	public void setAvg(int avg) {
+	public void setAvg(float avg) {
 		this.avg = avg;
 	}
 	
