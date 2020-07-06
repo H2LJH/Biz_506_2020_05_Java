@@ -10,7 +10,7 @@ import com.biz.student.domain.StudentVO;
 public class StudentServiceImplV4 extends StudentServiceImplV2 
 {
 	public StudentServiceImplV4() {
-		// outPut = System.out;
+		 outPut = System.out;
 	}
 
 	@Override
