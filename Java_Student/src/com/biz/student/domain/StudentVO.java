@@ -12,6 +12,8 @@ public class StudentVO
 	private int math;
 	private int sum;
 	private float avg;
+	private String grade1;
+	private String deep;
 	
 	public String getNum() {
 		return num;
@@ -76,6 +78,26 @@ public class StudentVO
 
 	public void setAvg(float avg) {
 		this.avg = avg / maxSubject;
+	}
+
+	public int getMaxSubject() {
+		return maxSubject;
+	}
+
+	public String getGrade1() {
+		return grade1;
+	}
+
+	public void setGrade1(String grade1) {
+		this.grade1 = grade1;
+	}
+
+	public String getDeep() {
+		return deep;
+	}
+
+	public void setDeep(String deep) {
+		this.deep = deep;
 	}
 	
 	
