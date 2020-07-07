@@ -15,8 +15,6 @@ public class ScoreEx_04
         sService.inputScore();
         sService.calcSum();
         sService.calcAvg();
-        sService.scoreList("00010");
-
-
+        sService.scoreList();
     }    
 }

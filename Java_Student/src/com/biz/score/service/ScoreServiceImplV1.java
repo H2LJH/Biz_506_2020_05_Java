@@ -7,15 +7,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.biz.score.config.SplitPos;
+import com.biz.student.domain.ScoreVO;
 import com.biz.student.domain.StudentVO;
 
 public class ScoreServiceImplV1  implements ScoreService
 {
 	List<StudentVO> studentList;
+	List<ScoreVO> scoreList;
 
 	public ScoreServiceImplV1()
 	{
 		studentList = new ArrayList<StudentVO>();
+		scoreList = new ArrayList<ScoreVO>();
 	}
 
 	@Override
@@ -36,16 +40,15 @@ public class ScoreServiceImplV1  implements ScoreService
 			{
 				reader = buffer.readLine();
 				
-				if(reader == null || studentList.size() >= 30)
+				if(reader == null)
 					break;
-	 
+				
 				students = reader.split(":");
-
 				StudentVO vo = new StudentVO();
-				vo.setNum(students[0]);
-				vo.setName(students[1]);
-				vo.setGrade((Integer.valueOf(students[2])));
-				vo.setDept((students[4]));
+				vo.setNum(students[SplitPos.STUDENT.ST_NUM]);
+				vo.setName(students[SplitPos.STUDENT.ST_NAME]);
+				vo.setGrade((Integer.valueOf(students[SplitPos.STUDENT.ST_GRADE])));
+				vo.setDept((students[SplitPos.STUDENT.ST_DEPT]));
 				studentList.add(vo);
 			}
 			
@@ -61,7 +64,7 @@ public class ScoreServiceImplV1  implements ScoreService
 	public void inputScore() 
 	{
 		String studentFile = "src/com/biz/student/exec/score.txt";
-		String[] students;
+		String[] scores;
 		FileReader fileReader = null;
 		BufferedReader buffer = null;
 
@@ -71,17 +74,24 @@ public class ScoreServiceImplV1  implements ScoreService
 			buffer = new BufferedReader(fileReader);
 			String reader = "";  
 	
-			for(StudentVO one : studentList)
+			while(true)
 			{
 				reader = buffer.readLine();
-				 
-				students = reader.split(":");
-
-				one.setKor((Integer.valueOf(students[1])));
-				one.setEng(Integer.valueOf(students[2]));
-				one.setMath((Integer.valueOf(students[3])));
+				
+				if(reader == null)
+					break;
+				
+				scores = reader.split(":");
+				ScoreVO vo = new ScoreVO();
+				vo.setNum(scores[SplitPos.SCORE.SC_NUM]);
+				vo.setKor(Integer.valueOf(scores[SplitPos.SCORE.SC_KOR]));
+				vo.setEng(Integer.valueOf(scores[SplitPos.SCORE.SC_ENG]));
+				vo.setMath(Integer.valueOf(scores[SplitPos.SCORE.SC_MATH]));
+				vo.setSum(Integer.valueOf(scores[SplitPos.SCORE.SC_SUM]));
+				vo.setAvg(Float.valueOf(scores[SplitPos.SCORE.SC_AVG]));
+				scoreList.add(vo);
 			}
-			
+				
 			buffer.close();
 			fileReader.close();						
 		} 
@@ -93,36 +103,56 @@ public class ScoreServiceImplV1  implements ScoreService
 	@Override
 	public void calcSum() 
 	{
-		for(StudentVO one : studentList)
-			one.setSum(one.getKor() + one.getMath() + one.getEng());
+		int sum = 0;
+		for(StudentVO i : studentList)
+		{
+			for(ScoreVO j : scoreList)
+			{
+				sum = j.getKor() + j.getEng() + j.getMath();
+				if(i.getName().equals(j.getNum()) && j.getSum() != sum)
+					j.setSum(sum);
+			}
+		}
 	}
 
 	
 	@Override
 	public void calcAvg() 
 	{
-		for(StudentVO one : studentList)
-			one.setAvg(one.getSum());
+		int avg = 0;
+		for(StudentVO i : studentList)
+		{
+			for(ScoreVO j : scoreList)
+			{
+				avg = j.getSum() / 3;
+				if(i.getName().equals(j.getNum()) && j.getAvg() != avg)
+					j.setAvg(avg);
+			}
+		}
 	}
 
 	
 	@Override
-	public void scoreList(String number) 
+	public void scoreList() 
 	{
-		for(StudentVO one : studentList)
+		for(StudentVO i : studentList)
 		{
-		  if(one.getNum().equals(number))
+			for(ScoreVO j : scoreList)
 			{
-				System.out.print(one.getNum()  + "\t" + 
-								 one.getName() + "\t" + 
-								 one.getKor()  + "\t" + 
-								 one.getEng()  + "\t" +
-								 one.getMath() + "\t" +
-								 one.getSum()  + "\t" +
-								 one.getAvg()  + "\n");
-				System.out.println("=================================================");
+				if(i.getNum().equals(j.getNum()))
+				{
+					System.out.print(i.getNum()  + "\t" + 
+									 i.getName() + "\t" +
+									 j.getKor()  + "\t" +
+									 j.getEng()  + "\t" +
+									 j.getMath() + "\t" +
+									 j.getSum()  + "\t" +
+									 j.getAvg()  + "\n");
+					System.out.println("=======================================================");
+				}
 			}
 		}
+		
 	}
 	
 	

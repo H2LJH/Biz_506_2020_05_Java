@@ -10,7 +10,7 @@ public interface ScoreService
 	
 	public void calcAvg(); // 평균 계산
 	
-	public void scoreList(String number); // 학생별 과목 점수 총점 평균 출력
+	public void scoreList(); // 학생별 과목 점수 총점 평균 출력
 	
 }
 
