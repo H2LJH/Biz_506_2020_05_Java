@@ -1,4 +1,4 @@
-package com.biz.sudent.service;
+package com.biz.student.service;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;

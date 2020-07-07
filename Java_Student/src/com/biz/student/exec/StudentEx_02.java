@@ -1,7 +1,7 @@
 package com.biz.student.exec;
 
-import com.biz.sudent.service.StudentService;
-import com.biz.sudent.service.StudentServiceImplV2;
+import com.biz.student.service.StudentService;
+import com.biz.student.service.StudentServiceImplV2;
 
 public class StudentEx_02 
 {

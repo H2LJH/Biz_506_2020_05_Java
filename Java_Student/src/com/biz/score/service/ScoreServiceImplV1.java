@@ -19,6 +19,7 @@ public class ScoreServiceImplV1  implements ScoreService
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void inputStudent() 
 	{
 		String studentFile = "src/com/biz/student/exec/student.txt";
@@ -26,6 +27,15 @@ public class ScoreServiceImplV1  implements ScoreService
 		FileReader fileReader = null;
 		BufferedReader buffer = null;
 		
+=======
+	public void inputStudent() {
+		
+		String studentFile = "Java_Student\\src\\com\\biz\\student\\exec\\student.txt";
+		String[] students;
+		FileReader fileReader = null;
+		BufferedReader buffer = null;
+		
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 		try
 		{
 			fileReader = new FileReader(studentFile);
@@ -36,7 +46,11 @@ public class ScoreServiceImplV1  implements ScoreService
 			{
 				reader = buffer.readLine();
 				
+<<<<<<< HEAD
 				if(reader == null || studentList.size() >= 30)
+=======
+				if(reader == null)
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 					break;
 				 
 				students = reader.split(":");
@@ -53,23 +67,43 @@ public class ScoreServiceImplV1  implements ScoreService
 			buffer.close();
 			fileReader.close();						
 		} 
+<<<<<<< HEAD
 		catch (FileNotFoundException e) {e.printStackTrace();} 
 		catch (IOException e) {e.printStackTrace();}
+=======
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 
 	}
 
 	@Override
 	public void inputScore() 
 	{
+<<<<<<< HEAD
 		String studentFile = "src/com/biz/student/exec/score.txt";
 		String[] students;
 		FileReader fileReader = null;
 		BufferedReader buffer = null;
+=======
+		String studentFile = "Java_Student\\src\\com\\biz\\student\\exec\\score.txt";
+		String[] students;
+		FileReader fileReader = null;
+		BufferedReader buffer = null;
+		int index = 0;
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 		try
 		{
 			fileReader = new FileReader(studentFile);
 			buffer = new BufferedReader(fileReader);
 			String reader = "";  
+<<<<<<< HEAD
 	
 			for(StudentVO one : studentList)
 			{
@@ -80,13 +114,40 @@ public class ScoreServiceImplV1  implements ScoreService
 				one.setKor((Integer.valueOf(students[1])));
 				one.setEng(Integer.valueOf(students[2]));
 				one.setMath((Integer.valueOf(students[3])));
+=======
+			
+			while(true)
+			{
+				reader = buffer.readLine();
+				
+				if(reader == null || index == 30)
+					break;
+				 
+				students = reader.split(":");
+
+				studentList.get(index).setKor((Integer.valueOf(students[1])));
+				studentList.get(index).setEng(Integer.valueOf(students[2]));
+				studentList.get(index).setMath((Integer.valueOf(students[3])));
+				index++;
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 			}
 			
 			buffer.close();
 			fileReader.close();						
 		} 
+<<<<<<< HEAD
 		catch (FileNotFoundException e) {e.printStackTrace();} 
 		catch (IOException e) {e.printStackTrace();}
+=======
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 
 	}
 
@@ -94,7 +155,12 @@ public class ScoreServiceImplV1  implements ScoreService
 	public void calcSum() 
 	{
 		for(StudentVO one : studentList)
+<<<<<<< HEAD
 			one.setSum(one.getKor() + one.getMath() + one.getEng());
+=======
+		one.setSum(one.getKor() + one.getMath() + one.getEng());
+
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 	}
 
 	@Override
@@ -105,7 +171,11 @@ public class ScoreServiceImplV1  implements ScoreService
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void scoreList(String number) {
+=======
+	public void scoreList() {
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 
 		System.out.println("=================================================");
 		System.out.println("\t 학생 정보 ");
@@ -114,6 +184,7 @@ public class ScoreServiceImplV1  implements ScoreService
 		System.out.println("=================================================");
 		for(StudentVO one : studentList)
 		{
+<<<<<<< HEAD
 			if(one.getNum().equals(number))
 			{
 				System.out.print(one.getNum()  + "\t" + 
@@ -125,6 +196,16 @@ public class ScoreServiceImplV1  implements ScoreService
 								 one.getAvg()  + "\n");
 				System.out.println("=================================================");
 			}
+=======
+			System.out.print(one.getNum()  + "\t" + 
+							 one.getName() + "\t" + 
+							 one.getKor()  + "\t" + 
+							 one.getEng()  + "\t" +
+							 one.getMath() + "\t" +
+							 one.getSum()  + "\t" +
+							 one.getAvg()  + "\n");
+			System.out.println("=============================================");
+>>>>>>> e369461c8344791c95605052a62dad97ff150b09
 		}
 
 	}

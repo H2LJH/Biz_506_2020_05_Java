@@ -1,4 +1,4 @@
-package com.biz.sudent.service;
+package com.biz.student.service;
 
 /*
  *  Business Logic // 실제 어떤 일들을 수행하는 주요 method를 모아두는 packge
