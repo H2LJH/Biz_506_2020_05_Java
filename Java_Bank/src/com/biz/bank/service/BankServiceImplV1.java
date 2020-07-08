@@ -22,37 +22,37 @@ public class BankServiceImplV1 implements BankService
 	@Override
 	public boolean inputBalance() // inputBalance()를 호출하여 입금처리를 수행
 	{
-		AccountVO vo = new AccountVO();
 		String strSc = "";
-		
+		int inputMoney = 0;
 		System.out.print("입금 하실 금액 입력 : ");
 		strSc = sc.nextLine();
 		try 
 		{
-		  vo.setInput(Integer.valueOf(strSc));
+			inputMoney = Integer.valueOf(strSc);
+			strSc = "";
 		}
 
 		catch (Exception e) 
 		{
 		   System.out.println("잘못 입력 하셨습니다.");
-		   System.out.println("====================================");
 		   return false;
 		}
-		
+		AccountVO vo = new AccountVO();	
 		Date date = new Date();
 		SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		String curDate = DateFormat.format(date);
+		strSc = DateFormat.format(date);
+		
+		vo.setInput(inputMoney);
+		vo.setDate(strSc);
 		accList.add(vo);
 		System.out.println("입금완료 되었습니다.");
-		vo.setDate(curDate);
-		System.out.println("====================================");
 		return true;
 		
 	}
 
 	@Override
 	public boolean outputBalance() 
-	{	AccountVO vo = new AccountVO();
+	{	
 		String strSc = "";
 		int totalMoney = 0;
 		int outputMoney = 0;
@@ -61,50 +61,57 @@ public class BankServiceImplV1 implements BankService
 		strSc = sc.nextLine();
 		try
 		{
-		  accList.get(0).setOutput(Integer.valueOf(strSc));
+			outputMoney = Integer.valueOf(strSc);
+			strSc = "";
 		}
 		catch (Exception e) 
 		{
 		  System.out.println("금액을 다시 입력하세요");
-		  System.out.println("====================================");
 		  return false;
 		}
 		
 		for(AccountVO one : accList)
-			totalMoney = one.getInput() - one.getOutput();
+			totalMoney += one.getInput() - one.getOutput();
 		
 		if(totalMoney < outputMoney)
 		{
-		   System.out.println("잔액이 부족합니다.");
-		   return false;
+			System.out.println("잔액이 부족합니다.");
+			return false;
 		}
 		
-		vo.setOutput(outputMoney);
-		accList.add(vo);
-		
-		Date date = new Date();
-		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-DD HH:mm");
-		strSc = dateformat.format(date);
-
-		System.out.println("출금 완료 되었습니다.");
-		System.out.println("====================================");
-
-		return true;
+			AccountVO vo = new AccountVO();
+			vo.setOutput(outputMoney);
+			
+			Date date = new Date();
+			SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			strSc = dateformat.format(date);
+			
+			vo.setDate(strSc);
+			accList.add(vo);
+			System.out.println("출금 완료 되었습니다.");
+			return true;
 	}
 		
 
 	@Override
 	public void listBalance() 
 	{
-		System.out.println();
-		for(AccountVO one : accList)
+		int totalMoney = 0;
+		System.out.println("====================================");
+		System.out.println("날짜\t\t\t 입금\t 출금\t 잔액");
+		System.out.println("====================================");
+		for(int i=0; i<accList.size(); ++i)
 		{
-			System.out.print("입금 내역 : " + one.getInput()  + "\t" + one.getDate() + "\t" + 
-					 "출금 내역 : " + one.getOutput() + "\t" + one.getDate() + "\n");
+			totalMoney += accList.get(i).getInput() - accList.get(i).getOutput();
 			
-			System.out.print("현재 잔액 : " + (one.getInput()-one.getOutput()) + "\n");
+			 System.out.printf("%s\t%d\t%d\t%d\n", accList.get(i).getDate(), 
+			 				       accList.get(i).getInput(), 
+							       accList.get(i).getOutput(), 
+					 		       totalMoney); 
 		}
 		
 	}
+
+
 	
 }
