@@ -1,60 +1,117 @@
-package com.biz.bank.exec;
+package com.biz.bank.service;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
-import com.biz.bank.service.BankService;
-import com.biz.bank.service.BankServiceImplV1;
-import com.biz.bank.service.BankServiceImplV3;
+import com.biz.bank.domain.AccountVO;
 
-public class BankEx_01 
+public class BankServiceImplV1 implements BankService
 {
-	public static void main(String[] args) 
+	List<AccountVO> accList;
+	Scanner sc;
+
+	public BankServiceImplV1() 
 	{
-		Scanner scan = new Scanner(System.in);
-		BankService bService = new BankServiceImplV1();
-		
-		while(true) {
-			
-			System.out.println("==================================");
-			System.out.println("빛고을 뱅크 계정계 시스템 V1");
-			System.out.println("==================================");
-			System.out.println("1. 입금처리");
-			System.out.println("2. 출금처리");
-			System.out.println("3. 입출금 내역 출력");
-			System.out.println("-1. 업무종료");
-			System.out.println("==================================");
-			System.out.print("업무선택 >> ");
-			
-			String strMenu = scan.nextLine();
-			int intMenu = 0;
-			try {
-				intMenu = Integer.valueOf(strMenu);
-			} catch (Exception e) {
-				System.out.println("메뉴선택은 숫자로만 입력하세요");
-				continue;
-			}
-			
- 			if(intMenu == -1) 
- 			{
- 				break;
- 			} 
- 			else if(intMenu == 1) 
- 			{
- 				bService.inputBalance();
- 			} 
- 			else if(intMenu == 2) 
- 			{
- 				bService.outputBalance();
- 			} 
- 			else if(intMenu == 3) 
- 			{
- 				bService.listBalance();
- 			} 
- 			else 
- 			{
- 				System.out.println("선택된 업무가 없습니다");
- 			}
-		}
+		accList = new ArrayList<AccountVO>();
+		sc = new Scanner(System.in);
 	}
 
+	@Override
+	public boolean inputBalance() // inputBalance()를 호출하여 입금처리를 수행
+	{
+		String strSc = "";
+		int inputMoney = 0;
+		System.out.print("입금 하실 금액 입력 : ");
+		strSc = sc.nextLine();
+		try 
+		{
+			inputMoney = Integer.valueOf(strSc);
+			strSc = "";
+		}
+
+		catch (Exception e) 
+		{
+		   System.out.println("잘못 입력 하셨습니다.");
+		   return false;
+		}
+		AccountVO vo = new AccountVO();	
+		Date date = new Date();
+		SimpleDateFormat DateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		strSc = DateFormat.format(date);
+		
+		vo.setInput(inputMoney);
+		vo.setDate(strSc);
+		accList.add(vo);
+		System.out.println("입금완료 되었습니다.");
+		return true;
+		
+	}
+
+	@Override
+	public boolean outputBalance() 
+	{	
+		String strSc = "";
+		int totalMoney = 0;
+		int outputMoney = 0;
+		
+		System.out.printf("출금 금액 입력 : ");
+		strSc = sc.nextLine();
+		try
+		{
+			outputMoney = Integer.valueOf(strSc);
+			strSc = "";
+		}
+		catch (Exception e) 
+		{
+		  System.out.println("금액을 다시 입력하세요");
+		  return false;
+		}
+		
+		for(AccountVO one : accList)
+			totalMoney += one.getInput() - one.getOutput();
+		
+		if(totalMoney < outputMoney)
+		{
+			System.out.println("잔액이 부족합니다.");
+			return false;
+		}
+		
+			AccountVO vo = new AccountVO();
+			vo.setOutput(outputMoney);
+			
+			Date date = new Date();
+			SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+			strSc = dateformat.format(date);
+			
+			vo.setDate(strSc);
+			accList.add(vo);
+			System.out.println("출금 완료 되었습니다.");
+			return true;
+	}
+		
+
+	@Override
+	public void listBalance() 
+	{
+		int totalMoney = 0;
+		System.out.println("====================================");
+		System.out.println("날짜\t\t\t 입금\t 출금\t 잔액");
+		System.out.println("====================================");
+		for(int i=0; i<accList.size(); ++i)
+		{
+			totalMoney += accList.get(i).getInput() - accList.get(i).getOutput();
+			
+			 System.out.printf("%s\t%d\t%d\t%d\n", accList.get(i).getDate(), 
+					 							   accList.get(i).getInput(), 
+					 							   accList.get(i).getOutput(), 
+					 							   totalMoney); 
+		}
+		
+	}
+
+
+	
 }
