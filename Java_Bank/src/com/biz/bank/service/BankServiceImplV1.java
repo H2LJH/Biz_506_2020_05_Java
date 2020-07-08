@@ -61,7 +61,7 @@ public class BankServiceImplV1 implements BankService
 		strSc = sc.nextLine();
 		try
 		{
-			accList.get(0).setOutput(Integer.valueOf(strSc));
+		  accList.get(0).setOutput(Integer.valueOf(strSc));
 		}
 		catch (Exception e) 
 		{
@@ -70,13 +70,13 @@ public class BankServiceImplV1 implements BankService
 		  return false;
 		}
 		
-		for(Account one : accList)
+		for(AccountVO one : accList)
 			totalMoney = one.getInput() - one.getOutput();
 		
 		if(totalMoney < outputMoney)
 		{
-			System.out.println("잔액이 부족합니다.");
-			return false;
+		   System.out.println("잔액이 부족합니다.");
+		   return false;
 		}
 		
 		vo.setOutput(outputMoney);
